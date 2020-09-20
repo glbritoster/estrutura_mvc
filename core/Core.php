@@ -24,20 +24,26 @@ class Core {
             }
             if(count($url) > 0){
                 $params = $url;
-            }
-            
+            }         
                  
             
             
         }else{
             $currentController = 'homeController';
-            $currentAction = 'index';
-            
+            $currentAction = 'index';            
         }
-        echo '<hr/>';
+        
+        $c = new $currentController();    
+        call_user_func_array(array($c, $currentAction), $params);
+        
+        
+        
+        
+        
+        /*echo '<hr/>';
         echo "CONTROLLER: ".$currentController."<br/>";
         echo "ACTION: ".$currentAction."<br/>";
-        echo "PARAMS: ".print_r($params, true)."<br/>";  
+        echo "PARAMS: ".print_r($params, true)."<br/>";  */
     }
     
 }
