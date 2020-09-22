@@ -1,13 +1,19 @@
 <?php
-/**
-  * @author giovanni
- */
-class Anuncios {
+
+class Anuncios extends model{
     
     public function getQuantidade(){
-        $n = 8;
-        return $n;
+        $sql = "SELECT COUNT(*) as c FROM anuncios";
+        $sql = $this->db->query($sql);
         
+        if ($sql->rowCount()>0){
+            
+            $sql = $sql->fetch();
+            return $sql['c'];
+                       
+        }else{
+            return 0;
+        }
     }
     
 }

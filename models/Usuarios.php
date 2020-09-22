@@ -1,8 +1,5 @@
 <?php
 
-/**
-  * @author giovanni
- */
 class Usuarios {
     
     public function getNome(){
